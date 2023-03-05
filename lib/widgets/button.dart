@@ -8,36 +8,38 @@ class ButtonWidget extends StatelessWidget {
   final Color fontColor;
   final Color borderColor;
   final VoidCallback onTap;
+
+  
   ButtonWidget({
-     this.label = '',
-     this.backgroundColor,
-     this.fontColor,
-     this.borderColor,
-     this.onTap,
+     required this.label,
+     required this.backgroundColor,
+     required this.fontColor,
+     required this.borderColor,
+     required this.onTap,
   });
 
-  ButtonWidget.gameTypeButton1({String label, VoidCallback onTap})
+  ButtonWidget.gameTypeButton1({required String label, required VoidCallback onTap})
       : this.backgroundColor = AppColors.gameTypeButton1,
         this.fontColor = AppColors.white,
         this.borderColor = AppColors.border,
         this.onTap = onTap,
         this.label = label;
 
-  ButtonWidget.gameTypeButton2({String label, VoidCallback onTap})
+  ButtonWidget.gameTypeButton2({required String label, required VoidCallback onTap})
       : this.backgroundColor = AppColors.gameTypeButton2,
         this.fontColor = AppColors.white,
         this.borderColor = AppColors.border,
         this.onTap = onTap,
         this.label = label;
 
-  ButtonWidget.gameTypeButton3({String label, VoidCallback onTap})
+  ButtonWidget.gameTypeButton3({required String label, required VoidCallback onTap})
       : this.backgroundColor = AppColors.gameTypeButton3,
         this.fontColor = AppColors.white,
         this.borderColor = AppColors.border,
         this.onTap = onTap,
         this.label = label;
   
-  ButtonWidget.gameTypeButton4({String label, VoidCallback onTap})
+  ButtonWidget.gameTypeButton4({required String label, required VoidCallback onTap})
       : this.backgroundColor = AppColors.gameTypeButton4,
         this.fontColor = AppColors.white,
         this.borderColor = AppColors.border,
