@@ -18,12 +18,18 @@ class TeamCard extends StatefulWidget {
 }
 
 class _TeamCardState extends State<TeamCard> {
-  Widget appBarTitle = new Text("Search Sample", style: new TextStyle(color: Colors.white),);
-  Icon actionIcon = new Icon(Icons.search, color: Colors.white,);
+  Widget appBarTitle = new Text(
+    "Search Sample",
+    style: new TextStyle(color: Colors.white),
+  );
+  Icon actionIcon = new Icon(
+    Icons.search,
+    color: Colors.white,
+  );
   final SearchData _searchData = new SearchData();
   final TextEditingController _searchQuery = new TextEditingController();
-  List<String> _list;
-  bool _IsSearching;
+  List<String> _list = [];
+  bool _IsSearching = false;
   String _searchText = "";
 
   _SearchState() {
@@ -80,7 +86,7 @@ class _TeamCardState extends State<TeamCard> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
- //                 onChanged: (value) => _name['name'] = _searchQuery.text,
+                  //                 onChanged: (value) => _name['name'] = _searchQuery.text,
                 ),
                 SizedBox(height: 14),
                 TextFormField(
@@ -116,13 +122,11 @@ class _TeamCardState extends State<TeamCard> {
                   ),
                   onChanged: (value) {
                     //=> _name['name'] = _controllerSearch.text
-                    return Container(
-                      child: new ListView(
-                        padding: new EdgeInsets.symmetric(vertical: 8.0),
-                        children:
-                            _IsSearching ? _buildSearchUser() : _buildList(),
-                      ),
-                    );
+                    return null;
+                    // ListView(
+                    //           padding: EdgeInsets.symmetric(vertical: 8.0),
+                    //           children: _IsSearching ? _buildSearchUser() : _buildList(),
+                    //    );
                   },
                 ),
                 SizedBox(height: 150),
@@ -177,30 +181,27 @@ class _TeamCardState extends State<TeamCard> {
         ],
       ),
     );
-    
   }
-  
+
   List<ChildItem> _buildList() {
-    return _list.map((contact) => new ChildItem(contact)).toList();
+    return _list.map((contact) => ChildItem(contact)).toList();
   }
 
   List<ChildItem> _buildSearchUser() {
     if (_searchText.isEmpty) {
-      return _list.map((contact) => new ChildItem(contact))
-          .toList();
-    }
-    else {
-      List<String> _searchList = List();
+      return _list.map((contact) => ChildItem(contact)).toList();
+    } else {
+      List<String> _searchList = [];
       for (int i = 0; i < _list.length; i++) {
-        String  name = _list.elementAt(i);
+        String name = _list.elementAt(i);
         if (name.toLowerCase().contains(_searchText.toLowerCase())) {
           _searchList.add(name);
         }
       }
-      return _searchList.map((contact) => new ChildItem(contact))
-          .toList();
+      return _searchList.map((contact) => ChildItem(contact)).toList();
     }
   }
+
   void _handleSearchStart() {
     setState(() {
       _IsSearching = true;
@@ -209,14 +210,18 @@ class _TeamCardState extends State<TeamCard> {
 
   void _handleSearchEnd() {
     setState(() {
-      this.actionIcon = new Icon(Icons.search, color: Colors.white,);
-      this.appBarTitle =
-      new Text("Search Sample", style: new TextStyle(color: Colors.white),);
+      this.actionIcon = Icon(
+        Icons.search,
+        color: Colors.white,
+      );
+      this.appBarTitle = Text(
+        "Search Sample",
+        style: TextStyle(color: Colors.white),
+      );
       _IsSearching = false;
       _searchQuery.clear();
     });
   }
-
 }
 
 class ChildItem extends StatelessWidget {
@@ -224,9 +229,6 @@ class ChildItem extends StatelessWidget {
   ChildItem(this.name);
   @override
   Widget build(BuildContext context) {
-    return new ListTile(title: new Text(this.name));
+    return ListTile(title: Text(this.name));
   }
-
 }
-
-  
