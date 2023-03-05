@@ -7,13 +7,17 @@ import './screens/authScreen.dart';
 import './routes/appRoutes.dart';
 import './utils/colors.dart';
 import './screens/homeScreen.dart';
-//import './screens/init_chat_screen.dart';
-//import './screens/chat_screen.dart';
+//import './screens/initChatScreen.dart';
+import './screens/chatScreen.dart';
 
-void main() {
-  runApp(MyApp());
-}
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    runApp(MyApp());
+} 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -35,8 +39,8 @@ class MyApp extends StatelessWidget {
         AppRoutes.AUTH_SCREEN: (ctx) => AuthScreen(),
         AppRoutes.HOME_SCREEN: (ctx) => HomeScreen(),
         AppRoutes.START_SCREEN: (ctx) => StartScreen(),
-        //     AppRoutes.INIT_CHAT_SCREEN: (ctx) => InitChatScreen(),
-        //     AppRoutes.CHAT_SCREEN: (ctx) => ChatScreen(),
+        //AppRoutes.INIT_CHAT_SCREEN: (ctx) => InitChatScreen(),
+        //AppRoutes.CHAT_SCREEN: (ctx) => ChatScreen(),
       },
     );
   }

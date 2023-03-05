@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "885265811986",
+    "project_id": "tcckau",
+    "storage_bucket": "tcckau.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885265811986:android:03b1385234798cfab0e6cb",
+        "android_client_info": {
+          "package_name": "com.example.tcckau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885265811986-fnbjoq1qt6oc3m3gr2r0quc8o4a7u45s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCcOjoEBLYfWCEU3IpIqL0tFY7_f2SJgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885265811986-fnbjoq1qt6oc3m3gr2r0quc8o4a7u45s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "885265811986-nu374aiudtd3a1dcssbtrhsrvuecsoo0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tcckau"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
