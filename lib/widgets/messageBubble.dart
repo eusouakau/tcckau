@@ -12,7 +12,7 @@ class MessageBubble extends StatelessWidget {
     this.userName,
     this.userImage,
     this.belongsToMe, {
-    this.key,
+    required this.key,
   }) : super(key: key);
 
   @override
@@ -55,17 +55,19 @@ class MessageBubble extends StatelessWidget {
                     userName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: belongsToMe
-                          ? Colors.black
-                          : Theme.of(context).appBarTheme,
+                      color: Colors.black
+                      // belongsToMe
+                      //     ? Colors.black
+                      //     : Theme.of(context).appBarTheme,
                     ),
                   ),
                   Text(
                     message,
                     style: TextStyle(
-                      color: belongsToMe
-                          ? Colors.black
-                          : Theme.of(context).appBarTheme,
+                      color: Colors.black
+                      // belongsToMe
+                      //     ? Colors.black
+                      //     : Theme.of(context).appBarTheme,
                     ),
                     textAlign: belongsToMe ? TextAlign.end : TextAlign.start,
                   ),
