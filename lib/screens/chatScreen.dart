@@ -3,11 +3,13 @@ import 'package:tcckau/widgets/newMessage.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
+  const ChatScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pense&Responda'),
+        title: const Text('Pense&Responda'),
         actions: <Widget>[
           DropdownButtonHideUnderline(
             child: DropdownButton(
@@ -18,14 +20,12 @@ class ChatScreen extends StatelessWidget {
               items: [
                 DropdownMenuItem(
                   value: 'logout',
-                  child: Container(
-                    child: Row(
-                      children: <Widget>[
-                        Icon(Icons.exit_to_app),
-                        SizedBox(width: 8),
-                        Text('Sair'),
-                      ],
-                    ),
+                  child: Row(
+                    children: const <Widget>[
+                      Icon(Icons.exit_to_app),
+                      SizedBox(width: 8),
+                      Text('Sair'),
+                    ],
                   ),
                 )
               ],
@@ -39,16 +39,14 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              Expanded(child: Messages()),
-              NewMessage(), 
-            ],
-          ),
+        child: Column(
+          children: const [
+            Expanded(child: Messages()),
+            NewMessage(), 
+          ],
         ),
       ),
-      backgroundColor: const Color(0x4E4E4E),
+      backgroundColor: const Color(0x004e4e4e),
     );
   }
 }
