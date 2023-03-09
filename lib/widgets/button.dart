@@ -9,46 +9,38 @@ class ButtonWidget extends StatelessWidget {
   final Color borderColor;
   final VoidCallback onTap;
 
-  
-  ButtonWidget({
-     required this.label,
-     required this.backgroundColor,
-     required this.fontColor,
-     required this.borderColor,
-     required this.onTap,
+  const ButtonWidget({super.key, 
+    required this.label,
+    required this.backgroundColor,
+    required this.fontColor,
+    required this.borderColor,
+    required this.onTap,
   });
 
-  ButtonWidget.gameTypeButton1({required String label, required VoidCallback onTap})
-      : this.backgroundColor = AppColors.gameTypeButton1,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.border,
-        this.onTap = onTap,
-        this.label = label;
+  const ButtonWidget.gameTypeButton1(
+      {super.key, required this.label, required this.onTap})
+      : backgroundColor = AppColors.gameTypeButton1,
+        fontColor = AppColors.white,
+        borderColor = AppColors.border;
 
-  ButtonWidget.gameTypeButton2({required String label, required VoidCallback onTap})
-      : this.backgroundColor = AppColors.gameTypeButton2,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.border,
-        this.onTap = onTap,
-        this.label = label;
+  const ButtonWidget.gameTypeButton2({super.key, required this.label, required this.onTap})
+      : backgroundColor = AppColors.gameTypeButton2,
+        fontColor = AppColors.white,
+        borderColor = AppColors.border;
 
-  ButtonWidget.gameTypeButton3({required String label, required VoidCallback onTap})
-      : this.backgroundColor = AppColors.gameTypeButton3,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.border,
-        this.onTap = onTap,
-        this.label = label;
-  
-  ButtonWidget.gameTypeButton4({required String label, required VoidCallback onTap})
-      : this.backgroundColor = AppColors.gameTypeButton4,
-        this.fontColor = AppColors.white,
-        this.borderColor = AppColors.border,
-        this.onTap = onTap,
-        this.label = label;
+  const ButtonWidget.gameTypeButton3({super.key, required this.label, required this.onTap})
+      : backgroundColor = AppColors.gameTypeButton3,
+        fontColor = AppColors.white,
+        borderColor = AppColors.border;
+
+  const ButtonWidget.gameTypeButton4({super.key, required this.label, required this.onTap})
+      : backgroundColor = AppColors.gameTypeButton4,
+        fontColor = AppColors.white,
+        borderColor = AppColors.border;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 48,
       child: TextButton(
         style: ButtonStyle(
