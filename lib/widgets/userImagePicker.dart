@@ -7,7 +7,7 @@ import 'package:tcckau/utils/colors.dart';
 class UserImagePicker extends StatefulWidget {
   final Function(File pickedImage) onImagePick;
 
-  UserImagePicker(this.onImagePick);
+  const UserImagePicker(this.onImagePick, {super.key});
 
   @override
   _UserImagePickerState createState() => _UserImagePickerState();
