@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tcckau/screens/splashScreen.dart';
 import 'package:tcckau/screens/startScreen.dart';
 import 'package:tcckau/widgets/search.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import './screens/authScreen.dart';
 import './routes/appRoutes.dart';
@@ -13,12 +14,16 @@ import './screens/chatScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    runApp(MyApp());
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    runApp(const MyApp());
 } 
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,10 +40,10 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        AppRoutes.SPLASH_SCREEN: (ctx) => SplashScreen(),
+        AppRoutes.SPLASH_SCREEN: (ctx) => const SplashScreen(),
         AppRoutes.AUTH_SCREEN: (ctx) => AuthScreen(),
-        AppRoutes.HOME_SCREEN: (ctx) => HomeScreen(),
-        AppRoutes.START_SCREEN: (ctx) => StartScreen(),
+        AppRoutes.HOME_SCREEN: (ctx) => const HomeScreen(),
+        AppRoutes.START_SCREEN: (ctx) => const StartScreen(),
         //AppRoutes.INIT_CHAT_SCREEN: (ctx) => InitChatScreen(),
         //AppRoutes.CHAT_SCREEN: (ctx) => ChatScreen(),
       },
