@@ -10,11 +10,11 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search>
 {
-  Widget appBarTitle = new Text("Search Sample", style: new TextStyle(color: Colors.white),);
-  Icon actionIcon = new Icon(Icons.search, color: Colors.white,);
-  final key = new GlobalKey<ScaffoldState>();
-  final TextEditingController _searchQuery = new TextEditingController();
-  List<String> _list = [];
+  Widget appBarTitle =  const Text("Search Sample", style:  TextStyle(color: Colors.white),);
+  Icon actionIcon =  const Icon(Icons.search, color: Colors.white,);
+  final key =  GlobalKey<ScaffoldState>();
+  final TextEditingController _searchQuery =  TextEditingController();
+  final List<String> _list = [];
   bool _isSearching = false;
   String _searchText = "";
 
@@ -57,19 +57,19 @@ class _SearchState extends State<Search>
         child: Container(color: Colors.red),
       ),//buildBar(context),
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
         children: _isSearching ? _buildSearchUser() : _buildList(),
       ),
     );
   }
 
   List<ChildItem> _buildList() {
-    return _list.map((contact) => new ChildItem(contact)).toList();
+    return _list.map((contact) => ChildItem(contact)).toList();
   }
 
   List<ChildItem> _buildSearchUser() {
     if (_searchText.isEmpty) {
-      return _list.map((contact) => new ChildItem(contact))
+      return _list.map((contact) => ChildItem(contact))
           .toList();
     }
     else {
@@ -80,7 +80,7 @@ class _SearchState extends State<Search>
           _searchList.add(name);
         }
       }
-      return _searchList.map((contact) => new ChildItem(contact))
+      return _searchList.map((contact) => ChildItem(contact))
           .toList();
     }
   }
@@ -92,15 +92,15 @@ class _SearchState extends State<Search>
         actions: <Widget>[
            IconButton(icon: actionIcon, onPressed: () {
             setState(() {
-              if (this.actionIcon.icon == Icons.search) {
-                this.actionIcon =  Icon(Icons.close, color: Colors.white,);
-                this.appBarTitle =  TextField(
+              if (actionIcon.icon == Icons.search) {
+                actionIcon =  const Icon(Icons.close, color: Colors.white,);
+                appBarTitle =  TextField(
                   controller: _searchQuery,
-                  style:  TextStyle(
+                  style:  const TextStyle(
                     color: Colors.white,
 
                   ),
-                  decoration:  InputDecoration(
+                  decoration:  const InputDecoration(
                       prefixIcon:  Icon(Icons.search, color: Colors.white),
                       hintText: "Search...",
                       hintStyle:  TextStyle(color: Colors.white)
@@ -125,9 +125,9 @@ class _SearchState extends State<Search>
 
   void _handleSearchEnd() {
     setState(() {
-      this.actionIcon = Icon(Icons.search, color: Colors.white,);
-      this.appBarTitle =
-      new Text("Search Sample", style: TextStyle(color: Colors.white),);
+      actionIcon = const Icon(Icons.search, color: Colors.white,);
+      appBarTitle =
+      const Text("Search Sample", style: TextStyle(color: Colors.white),);
       _isSearching = false;
       _searchQuery.clear();
     });
@@ -137,10 +137,10 @@ class _SearchState extends State<Search>
 
 class ChildItem extends StatelessWidget {
   final String name;
-  ChildItem(this.name);
+  const ChildItem(this.name, {super.key});
   @override
   Widget build(BuildContext context) {
-    return ListTile(title: Text(this.name));
+    return ListTile(title: Text(name));
   }
 
 }
