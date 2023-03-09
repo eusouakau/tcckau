@@ -3,6 +3,8 @@ import 'package:tcckau/widgets/startCard.dart';
 import 'package:tcckau/routes/appRoutes.dart';
 
 class StartScreen extends StatefulWidget {
+  const StartScreen({super.key});
+
 //  const StartScreen({ Key? key }) : super(key: key);
 
   @override
@@ -15,16 +17,16 @@ class _StartScreenState extends State<StartScreen> {
     return Scaffold(
        appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(30, 30, 30, 1),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        backgroundColor: const Color.fromRGBO(30, 30, 30, 1),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(AppRoutes.HOME_SCREEN);
           },
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromRGBO(40, 40, 40, 1),
         ),
         child: Column(
@@ -32,30 +34,26 @@ class _StartScreenState extends State<StartScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 70.0),
               child: Column(
-                children: [
-                  Container(
-                    child: Text(
-                      'Iniciar Partida',
-                      style: TextStyle(
-                        color: Color.fromRGBO(185, 185, 185, 1),
-                        fontSize: 25,
-                      ),
+                children: const [
+                  Text(
+                    'Iniciar Partida',
+                    style: TextStyle(
+                      color: Color.fromRGBO(185, 185, 185, 1),
+                      fontSize: 25,
                     ),
                   ),
                   SizedBox(height: 12),
-                  Container(
-                    child: Text(
-                      'Escolha um modo de jogo:',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 15,
-                      ),
+                  Text(
+                    'Escolha um modo de jogo:',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15,
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             StartCard(),
           ],
         ),
