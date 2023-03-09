@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
+  const NewMessage({super.key});
+
   @override
   _NewMessageState createState() => _NewMessageState();
 }
@@ -15,31 +17,29 @@ class _NewMessageState extends State<NewMessage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        
-        children: [
-          Expanded(
-            child: TextField(
-              autocorrect: true,
-              textCapitalization: TextCapitalization.sentences,
-              controller: _controller,
-              decoration: InputDecoration(
-                labelText: ' Digite sua mensagem aqui... ',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _enteredMessage = value;
-                });
-              },
+    return Row(
+      
+      children: [
+        Expanded(
+          child: TextField(
+            autocorrect: true,
+            textCapitalization: TextCapitalization.sentences,
+            controller: _controller,
+            decoration: const InputDecoration(
+              labelText: ' Digite sua mensagem aqui... ',
             ),
+            onChanged: (value) {
+              setState(() {
+                _enteredMessage = value;
+              });
+            },
           ),
-          IconButton(
-            icon: Icon(Icons.send),
-            onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
-          ),
-        ],
-      ),
+        ),
+        IconButton(
+          icon: const Icon(Icons.send),
+          onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
+        ),
+      ],
     );
   }
 }
