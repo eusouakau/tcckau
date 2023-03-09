@@ -3,15 +3,17 @@ import 'package:tcckau/screens/teamScreen.dart';
 //import 'package:pense_responda/utils/colors.dart';
 
 class StartCard extends StatelessWidget {
+  const StartCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromRGBO(40, 40, 40, 1),
           ),
-          padding: EdgeInsets.only(top: 25, bottom: 25),
+          padding: const EdgeInsets.only(top: 25, bottom: 25),
           child: Column(
             children: [
               Padding(
@@ -30,17 +32,17 @@ class StartCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         textStyle: const TextStyle(fontSize: 20),
-                        backgroundColor: Color.fromRGBO(0, 170, 255, 5),
+                        backgroundColor: const Color.fromRGBO(0, 170, 255, 5),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Solo',
                         style: TextStyle(
                           color: Color.fromRGBO(45, 45, 45, 1),
                         ),
                       ),
-                      onPressed: () => null,
+                      onPressed: () => {},
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     TextButton(
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.only(
@@ -53,9 +55,9 @@ class StartCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         textStyle: const TextStyle(fontSize: 20),
-                        backgroundColor: Color.fromRGBO(100, 130, 255, 5),
+                        backgroundColor: const Color.fromRGBO(100, 130, 255, 5),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Desafio \n   1x1',
                         style: TextStyle(
                           color: Color.fromRGBO(45, 45, 45, 1),
@@ -65,7 +67,7 @@ class StartCard extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TeamScreen(),
+                            builder: (context) => const TeamScreen(),
                           ),
                         );
                       },
@@ -73,7 +75,7 @@ class StartCard extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Padding(
                 padding: const EdgeInsets.only(left: 48),
                 child: Row(
@@ -90,9 +92,9 @@ class StartCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         textStyle: const TextStyle(fontSize: 20),
-                        backgroundColor: Color.fromRGBO(130, 220, 190, 5),
+                        backgroundColor: const Color.fromRGBO(130, 220, 190, 5),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Desafio \n   2x2',
                         style: TextStyle(
                           color: Color.fromRGBO(45, 45, 45, 1),
@@ -102,12 +104,12 @@ class StartCard extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TeamScreen(),
+                            builder: (context) => const TeamScreen(),
                           ),
                         );
                       },
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     TextButton(
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.only(
@@ -122,7 +124,7 @@ class StartCard extends StatelessWidget {
                         textStyle: const TextStyle(fontSize: 20),
                         backgroundColor: Colors.yellowAccent,
                       ),
-                      child: Text(
+                      child: const Text(
                         'Desafio \n   3x3',
                         style: TextStyle(
                           color: Color.fromRGBO(45, 45, 45, 1),
@@ -132,7 +134,7 @@ class StartCard extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => TeamScreen(),
+                            builder: (context) => const TeamScreen(),
                           ),
                         );
                       },
@@ -140,7 +142,7 @@ class StartCard extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               TextButton(
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.only(
@@ -153,14 +155,15 @@ class StartCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   textStyle: const TextStyle(fontSize: 14),
-                  backgroundColor: Color.fromRGBO(50, 50, 50, 1),
+                  backgroundColor: const Color.fromRGBO(50, 50, 50, 1),
                 ),
-                child: Text(
+                child: const Text(
                   'Mediar Partida',
                   style: TextStyle(
                     color: Color.fromRGBO(200, 200, 200, 1),
                   ),
                 ),
+                // ignore: avoid_returning_null_for_void
                 onPressed: () => null,
               ),
             ],
