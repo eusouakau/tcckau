@@ -4,11 +4,13 @@ import 'package:tcckau/routes/appRoutes.dart';
 //import 'package:pense_responda/widgets/app_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Pense e Responda',
           style: TextStyle(
             fontSize: 20,
@@ -16,16 +18,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(30, 30, 30, 1),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        backgroundColor: const Color.fromRGBO(30, 30, 30, 1),
+        leading:  IconButton(
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(AppRoutes.AUTH_SCREEN);
           },
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromRGBO(40, 40, 40, 1),
         ),
         child: Padding(
@@ -50,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 14),
                           backgroundColor: Color.fromRGBO(0, 170, 255, 5),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Continuar',
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 5),
@@ -58,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         onPressed: () => null,
                       ),
-                      SizedBox(height: 17),
+                      const SizedBox(height: 17),
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only(
@@ -73,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 14),
                           backgroundColor: Colors.yellowAccent,
                         ),
-                        child: Text(
+                        child: const Text(
                           '+ Iniciar partida',
                           style: TextStyle(
                             color: Color.fromRGBO(45, 45, 45, 1),
@@ -88,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                           );
                         },
                       ),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only(
@@ -101,17 +103,17 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           textStyle: const TextStyle(fontSize: 14),
-                          backgroundColor: Color.fromRGBO(50, 50, 50, 1),
+                          backgroundColor: const Color.fromRGBO(50, 50, 50, 1),
                         ),
-                        child: Text(
+                        onPressed: null,
+                        child: const Text(
                           'Ver mão',
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 5),
                           ),
                         ),
-                        onPressed: null,
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only(
@@ -126,15 +128,15 @@ class HomeScreen extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 14),
                           backgroundColor: Color.fromRGBO(50, 50, 50, 1),
                         ),
-                        child: Text(
+                        onPressed: null,
+                        child: const Text(
                           'Ver tabuleiro',
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 5),
                           ),
                         ),
-                        onPressed: null,
                       ),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only(
@@ -149,15 +151,15 @@ class HomeScreen extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 14),
                           backgroundColor: Color.fromRGBO(50, 50, 50, 1),
                         ),
-                        child: Text(
+                        onPressed: null,
+                        child: const Text(
                           'Ranking semanal',
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 5),
                           ),
                         ),
-                        onPressed: null,
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.only(
@@ -172,13 +174,13 @@ class HomeScreen extends StatelessWidget {
                           textStyle: const TextStyle(fontSize: 14),
                           backgroundColor: Color.fromRGBO(50, 50, 50, 1),
                         ),
-                        child: Text(
+                        onPressed: null,
+                        child: const Text(
                           'Questões avaliadas',
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 5),
                           ),
                         ),
-                        onPressed: null,
                       ),
                     ],
                   ),
