@@ -1,13 +1,16 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
+  @override
+  // ignore: overridden_fields
   final Key key;
   final String userName;
   final String userImage;
   final String message;
   final bool belongsToMe;
 
-  MessageBubble(
+  const MessageBubble(
     this.message,
     this.userName,
     this.userImage,
@@ -29,20 +32,20 @@ class MessageBubble extends StatelessWidget {
                     ? Colors.grey[300]
                     : Theme.of(context).focusColor,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
+                  topLeft: const Radius.circular(12),
+                  topRight: const Radius.circular(12),
                   bottomLeft:
-                      belongsToMe ? Radius.circular(12) : Radius.circular(0),
+                      belongsToMe ? const Radius.circular(12) : const Radius.circular(0),
                   bottomRight:
-                      belongsToMe ? Radius.circular(0) : Radius.circular(12),
+                      belongsToMe ? const Radius.circular(0) : const Radius.circular(12),
                 ),
               ),
               width: 140,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 10,
                 horizontal: 16,
               ),
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 vertical: 12,
                 horizontal: 8,
               ),
@@ -53,7 +56,7 @@ class MessageBubble extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     userName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black
                       // belongsToMe
@@ -63,7 +66,7 @@ class MessageBubble extends StatelessWidget {
                   ),
                   Text(
                     message,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black
                       // belongsToMe
                       //     ? Colors.black
@@ -81,7 +84,7 @@ class MessageBubble extends StatelessWidget {
           left: belongsToMe ? null : 128,
           right: belongsToMe ? 128 : null,
           child: CircleAvatar(
-            backgroundImage: NetworkImage(this.userImage),
+            backgroundImage: NetworkImage(userImage),
           ),
         ),
       ],
