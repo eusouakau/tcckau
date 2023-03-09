@@ -6,6 +6,8 @@ import 'package:tcckau/models/Search.dart';
 import 'package:tcckau/models/User.dart';
 
 class TeamCard extends StatefulWidget {
+  const TeamCard({super.key});
+
   //const TeamCard({ Key? key }) : super(key: key);
   //final TeamData _teamData = TeamData();
 
@@ -18,16 +20,16 @@ class TeamCard extends StatefulWidget {
 }
 
 class _TeamCardState extends State<TeamCard> {
-  Widget appBarTitle = new Text(
+  Widget appBarTitle = const Text(
     "Search Sample",
-    style: new TextStyle(color: Colors.white),
+    style: const TextStyle(color: Colors.white),
   );
-  Icon actionIcon = new Icon(
+  Icon actionIcon = const Icon(
     Icons.search,
     color: Colors.white,
   );
-  final SearchData _searchData = new SearchData();
-  final TextEditingController _searchQuery = new TextEditingController();
+  final SearchData _searchData = SearchData();
+  final TextEditingController _searchQuery = TextEditingController();
   List<String> _list = [];
   bool _IsSearching = false;
   String _searchText = "";
@@ -66,7 +68,7 @@ class _TeamCardState extends State<TeamCard> {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color.fromRGBO(40, 40, 40, 1),
             ),
             child: Column(
@@ -74,62 +76,62 @@ class _TeamCardState extends State<TeamCard> {
                 TextFormField(
                   controller: _searchQuery,
                   decoration: InputDecoration(
-                    fillColor: Color.fromRGBO(30, 30, 30, 1),
+                    fillColor: const Color.fromRGBO(30, 30, 30, 1),
                     filled: true,
                     hintText: 'Digite um nome para a equipe',
                     labelText: 'Nome',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Color.fromRGBO(200, 200, 200, 1),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     border: UnderlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   //                 onChanged: (value) => _name['name'] = _searchQuery.text,
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 TextFormField(
                   decoration: InputDecoration(
-                    fillColor: Color.fromRGBO(30, 30, 30, 1),
+                    fillColor: const Color.fromRGBO(30, 30, 30, 1),
                     filled: true,
                     hintText: 'Cole a URL ou escolha uma imagem',
                     labelText: 'Imagem',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Color.fromRGBO(200, 200, 200, 1),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     border: UnderlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onChanged: (value) => null,
+                  onChanged: (value) => {},
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 TextFormField(
                   decoration: InputDecoration(
-                    fillColor: Color.fromRGBO(30, 30, 30, 1),
+                    fillColor: const Color.fromRGBO(30, 30, 30, 1),
                     filled: true,
                     hintText: 'Pesquisar usuários',
                     labelText: 'Membros',
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Color.fromRGBO(200, 200, 200, 1),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    contentPadding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                     border: UnderlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onChanged: (value) {
                     //=> _name['name'] = _controllerSearch.text
-                    return null;
+                    return;
                     // ListView(
                     //           padding: EdgeInsets.symmetric(vertical: 8.0),
                     //           children: _IsSearching ? _buildSearchUser() : _buildList(),
                     //    );
                   },
                 ),
-                SizedBox(height: 150),
+                const SizedBox(height: 150),
                 TextButton(
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.only(
@@ -144,15 +146,15 @@ class _TeamCardState extends State<TeamCard> {
                     textStyle: const TextStyle(fontSize: 15),
                     backgroundColor: Colors.yellowAccent,
                   ),
-                  child: Text(
+                  child: const Text(
                     'Sortear equipe',
                     style: TextStyle(
                       color: Color.fromRGBO(45, 45, 45, 1),
                     ),
                   ),
-                  onPressed: () => null,
+                  onPressed: () => {},
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 TextButton(
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.only(
@@ -165,15 +167,15 @@ class _TeamCardState extends State<TeamCard> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     textStyle: const TextStyle(fontSize: 15),
-                    backgroundColor: Color.fromRGBO(0, 170, 255, 5),
+                    backgroundColor: const Color.fromRGBO(0, 170, 255, 5),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Convidar membros',
                     style: TextStyle(
                       color: Color.fromRGBO(45, 45, 45, 1),
                     ),
                   ),
-                  onPressed: () => null,
+                  onPressed: () => {},
                 ),
               ],
             ),
@@ -210,11 +212,11 @@ class _TeamCardState extends State<TeamCard> {
 
   void _handleSearchEnd() {
     setState(() {
-      this.actionIcon = Icon(
+      actionIcon = const Icon(
         Icons.search,
         color: Colors.white,
       );
-      this.appBarTitle = Text(
+      appBarTitle = const Text(
         "Search Sample",
         style: TextStyle(color: Colors.white),
       );
@@ -226,9 +228,9 @@ class _TeamCardState extends State<TeamCard> {
 
 class ChildItem extends StatelessWidget {
   final String name;
-  ChildItem(this.name);
+  const ChildItem(this.name, {super.key});
   @override
   Widget build(BuildContext context) {
-    return ListTile(title: Text(this.name));
+    return ListTile(title: Text(name));
   }
 }
