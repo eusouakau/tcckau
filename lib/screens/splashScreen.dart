@@ -4,9 +4,11 @@ import 'package:tcckau/screens/authScreen.dart';
 import 'package:tcckau/utils/images.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 1)).then(
+    Future.delayed(const Duration(seconds: 1)).then(
       (value) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -18,7 +20,7 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         width: 500,
         height: 1500,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromRGBO(40, 40, 40, 1),
         ),
         child: Image.asset(AppImages.logo),
