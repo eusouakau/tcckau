@@ -44,8 +44,8 @@ class _SearchState extends State<Search>
   }
 
   void init() {
-    List<User> _list = [];
-    _list.add(User(name:  ''));
+    List<UserData> _list = [];
+    _list.add(UserData(name:  ''));
       }
 
   @override
