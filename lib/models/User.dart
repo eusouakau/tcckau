@@ -1,18 +1,12 @@
-// ignore: file_names
-class User {
-  final String name;
-  final String email;
-  final String password;
 
-  User({
+class UserData {
+  UserData({
+    this.avatar = '',
     this.name = '',
-    this.email = '',
-    this.password = '',
+    this.email = ''
   });
 
-  Future<String> playerteam(String name) async {
-    final url = User(name: name);
-    final response = await url.playerteam(name);
-    return response;
-  }
+  final String? avatar;
+  final String? name;
+  final String? email;
 }
