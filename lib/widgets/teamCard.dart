@@ -58,7 +58,7 @@ class _TeamCardState extends State<TeamCard> {
   }
 
   void init() {
-    List<User> _list = [];
+    List<UserData> _list = [];
   }
 
   @override
