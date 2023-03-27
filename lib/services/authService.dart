@@ -1,73 +1,88 @@
+// ignore_for_file: file_names
+
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
-class AuthErro implements Exception {
-  String message;
-  AuthErro(this.message);
-}
+import '../models/User.dart';
 
+class AuthService {
+  AuthService(this._context);
 
-class AuthService extends ChangeNotifier{
+  late final BuildContext _context;
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  User? usuario;
-  bool isLoading = true;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
 
+  Future<UserData?> createUserWithEmailAndPassword(
+      String name, String email, String password, File? avatar) async {
+    try {
+      final credential = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
 
+      String? imgUrl;
 
+      await credential.user?.updateDisplayName(name);
 
-  AuthService(){
-    _authCheck();
-  }
+      if (avatar != null) {
+        final imgName = '${const Uuid().v4()}}${avatar.path.split('.').last}';
 
-  _getUser(){
-    usuario = _auth.currentUser;
-    notifyListeners();
-  }
+        final imgRef = _storage.ref(imgName);
 
-  _authCheck(){
-    _auth.authStateChanges().listen((User? user) {
-      usuario = (user == null) ? null : user;
-      isLoading = false;
-      notifyListeners();
-    });
-  }
+        await imgRef.putFile(avatar);
 
-  register(String nome,String email, String senha, bool study) async {
-    try{
-      await _auth.createUserWithEmailAndPassword(email: email, password: senha);
-      await _getUser();
-      await usuario?.sendEmailVerification();
-      usuario?.updateDisplayName(nome);
-    } on FirebaseAuthException catch (e) {
-      if(e.code == 'weak-password'){
-        throw AuthErro("Utilize uma senha mais forte");
-      } else if (e.code == 'email-already-in-use'){
-        throw AuthErro("Este email já esta cadastrado");
+        imgUrl = await imgRef.getDownloadURL();
+
+        await credential.user?.updatePhotoURL(imgUrl);
       }
+
+      return UserData(avatar: imgUrl, name: name, email: email);
+    } on FirebaseException catch (error) {
+      ScaffoldMessenger.of(_context).showSnackBar(SnackBar(
+          content: Text(error.message ?? 'Ocorreu um erro desconhecido')));
+    } catch (error) {
+      ScaffoldMessenger.of(_context)
+          .showSnackBar(SnackBar(content: Text(error.toString())));
     }
+    return null;
   }
 
-
-  loginwithou(String email, String senha) async {
-    try{
-      await _auth.signInWithEmailAndPassword(email: email, password: senha);
-      _getUser();
-    } on FirebaseAuthException catch (e) {
-      if(e.code == 'user-not-found'){
-        throw AuthErro("Email ou senha incorretos");
-      } else if (e.code == 'wong-password'){
-        throw AuthErro("Email ou senha incorretos");
-      }
-
+  Future<UserData?> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final credential = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       
-
+      return UserData(
+        name: credential.user?.displayName, 
+        email: credential.user?.email, 
+        avatar: credential.user?.photoURL);
+        
+    } on FirebaseException catch (error) {
+      ScaffoldMessenger.of(_context).showSnackBar(SnackBar(
+          content: Text(error.message ?? 'Ocorreu um erro desconhecido')));
+    } catch (error) {
+      ScaffoldMessenger.of(_context)
+          .showSnackBar(SnackBar(content: Text(error.toString())));
     }
+    return null;
   }
 
-  logout() async{
+  UserData? getLoggedUser() {
+    final user = _auth.currentUser;
+
+    if (user == null) {
+      return null;
+    }
+
+    return UserData(
+        name: user.displayName, email: user.email, avatar: user.photoURL);
+  }
+
+  Future<void> signOut() async {
     await _auth.signOut();
-    _getUser();
   }
-
-
 }
