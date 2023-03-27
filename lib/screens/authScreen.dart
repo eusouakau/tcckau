@@ -4,6 +4,8 @@ import 'package:tcckau/utils/images.dart';
 import '../widgets/authCard.dart';
 
 class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
@@ -33,7 +35,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               padding: const EdgeInsets.fromLTRB(50, 81, 50, 0),
                               child: Image.asset(AppImages.logo),
                             ),
-                            AuthCard(),
+                            const AuthCard(),
                           ],
                         ),
                       ],
